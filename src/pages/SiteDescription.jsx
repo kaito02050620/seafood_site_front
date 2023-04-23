@@ -19,11 +19,7 @@ const SiteDescription = () => {
         <br className="sm:block hidden" />
         そんな時、海鮮に特化したランダムに晩御飯を決めてくれる
         <br className="sm:block hidden" />
-        サイトがあればとても便利では！？とひらめきサイト開設ました。
-        <br className="sm:block hidden" />
-        皆さんからの沢山の投稿によって、
-        <br className="sm:block hidden" />
-        毎日ランダムな海鮮料理が表示されるようになります。
+        サイトがあればとても便利では！？と思いサイト開設ました。
         <br className="sm:block hidden" />
         ぜひ本サイトに登録してレシピを登録してみてください。
         <br className="sm:block hidden" />
