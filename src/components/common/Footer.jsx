@@ -40,7 +40,9 @@ const Footer = () => {
                 <Link to="/developer">サイト開発者について</Link>
               </li>
               <li className="mb-3 sm:text-xl text-base">
-                <Link to="/siteDescription">お問い合わせ＆意見箱</Link>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfICoIi2yW8e2IKA6nC12S6Leao5ZeIpu_mbF753TIi3yozBA/viewform">
+                  お問い合わせ＆意見箱
+                </a>
               </li>
               {user ? (
                 <>
