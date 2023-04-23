@@ -18,7 +18,7 @@ function RecipeBoard(recipe) {
   const recipeTitleLength = recipe.title.length;
 
   return (
-    <li className="relative sm:h-52 h-72 w-full sm:p-5 p-3 recipeListBoard mb-5 flex flex-col sm:flex-row items-center">
+    <li className="relative sm:h-52 h-80 w-full sm:p-5 p-3 recipeListBoard mb-5 flex flex-col sm:flex-row items-center">
       <div className="md:w-64 sm:w-56 w-52 sm:h-full h-36 sm:mb-0 mb-1">
         <img
           className="w-full h-full object-cover"
