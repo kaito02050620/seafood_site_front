@@ -43,6 +43,7 @@ function User() {
       localStorage.removeItem("takenoko_seafood_user");
       await axios.delete(API_SERVER + "/users/" + user._id);
       window.location.reload();
+      navigate("/");
     } else {
       return;
     }
