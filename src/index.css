@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  @apply text-gray-800 font-sans text-base;
+}
+
+.sectionBoard {
+  @apply bg-yellow-600 rounded-sm bg-opacity-50 shadow-md;
+}
+
+.recipeListBoard {
+  @apply bg-red-50 rounded-sm bg-opacity-50 shadow-md max-w-2xl mx-auto;
+}
+
+.viewRecipeButton {
+  @apply bg-red-300 bg-opacity-40 sm:px-4 px-1 sm:py-2 py-1 rounded-sm border-solid border-gray-800 border inline-block;
+}
+
+.button:hover {
+  @apply duration-75 opacity-70;
+}
+
+.headerMenu {
+  @apply lg:ml-12 ml-6  lg:text-xl md:text-lg text-sm;
+}
+
+.homeTitleFont {
+  @apply md:text-3xl sm:text-2xl text-lg md:mb-10 mb-2;
+}
+
+.slide-right-enter {
+  transform: translateX(100%);
+}
+
+.slide-right-enter-active {
+  transform: translateX(0);
+  opacity: 1;
+  transition: transform 0.3s;
+}
+
+.slide-right-exit {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.slide-right-exit-active {
+  transform: translateX(100%);
+  transition: transform 0.3s;
+}
+
+.scroll-top-button-container {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  z-index: 999;
+}
+
+.scroll-top-button-transition {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 30px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 50%;
+}
