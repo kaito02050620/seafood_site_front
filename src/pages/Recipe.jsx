@@ -23,23 +23,29 @@ function Recipe() {
     return <p>読み込み中...</p>;
   }
 
+  const isUserEdit = () => {
+    if (user) {
+      if (user._id === recipe.userId) {
+        return (
+          <Link to={`/edit/${recipe._id}`} className="mr-2">
+            <button className="bg-green-300 bg-opacity-40 rounded-sm border-solid border-gray-800 border inline-block p-2  button button:hover">
+              投稿を編集する
+            </button>
+          </Link>
+        );
+      } else {
+        return "";
+      }
+    } else {
+      return "";
+    }
+  };
+
   return (
     <div className="sectionBoard md:p-16 sm:p-8 p-4">
       <div className="flex justify-between mb-2">
         <PageBackButton />
-        {user ? (
-          user._id ? (
-            <Link to={`/edit/${recipe._id}`} className="mr-2">
-              <button className="bg-green-300 bg-opacity-40 rounded-sm border-solid border-gray-800 border inline-block p-2  button button:hover">
-                投稿を編集する
-              </button>
-            </Link>
-          ) : (
-            ""
-          )
-        ) : (
-          ""
-        )}
+        {isUserEdit}
       </div>
       <div className=" sm:p-5 p-3 recipeListBoard">
         <div className=" w-full sm:mb-7 mb-3 md:text-2xl sm:text-xl text-lg">
