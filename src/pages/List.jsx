@@ -151,13 +151,13 @@ function RecipeList() {
           className=" block sm:w-80 w-[250px] md:p-3 p-2 mr-2 bg-red-500 bg-opacity-60 rounded-sm border-solid border-gray-800 border sm:text-base text-sm button button:hover"
           onClick={(e) => SearchButton(e)}
         >
-          条件に合う検索を表示
+          条件に合うレシピを表示
         </button>
         <button
           className=" block w-[140px] md:p-2 p-1  bg-red-50 bg-opacity-60 rounded-sm border-solid border-gray-800 border  sm:text-base text-sm button button:hover"
           onClick={(e) => ResetButton(e)}
         >
-          条件をリセット
+          条件リセット
         </button>
       </div>
       <ul className="md:mt-11 sm:mt-5 mt-3">
