@@ -1,5 +1,4 @@
 import React from "react";
-const PUBLIC_FOLDER = import.meta.env.VITE_API_PUBLIC_FOLDER;
 
 const Developer = () => {
   return (

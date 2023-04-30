@@ -1,10 +1,8 @@
 import React from "react";
-const PUBLIC_FOLDER = import.meta.env.VITE_API_PUBLIC_FOLDER;
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
 import "swiper/swiper.css";
 import "swiper/css/autoplay";
-const imageFolder = "../../public/assets/image/";
 
 function ImageSlider() {
   return (
@@ -20,19 +18,34 @@ function ImageSlider() {
         modules={[Autoplay]}
       >
         <SwiperSlide>
-          <img src={imageFolder + "/himono.png"} alt="1" />
+          <img
+            src="https://seafoodcook.netlify.app/assets/image/himono.png"
+            alt="1"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={imageFolder + "/agihurai.png"} alt="2" />
+          <img
+            src="https://seafoodcook.netlify.app/assets/image/agihurai.png"
+            alt="2"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={imageFolder + "/sasimi.png"} alt="3" />
+          <img
+            src="https://seafoodcook.netlify.app/assets/image/sasimi.png"
+            alt="3"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={imageFolder + "/tataki.png"} alt="4" />
+          <img
+            src="https://seafoodcook.netlify.app/assets/image/tataki.png"
+            alt="4"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={imageFolder + "/wakasagi.png"} alt="4" />
+          <img
+            src="https://seafoodcook.netlify.app/assets/image/wakasagi.png"
+            alt="4"
+          />
         </SwiperSlide>
       </Swiper>
     </>
