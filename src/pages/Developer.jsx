@@ -10,7 +10,10 @@ const Developer = () => {
       <div className="md:flex justify-between px-5 md:w-[740px] mx-auto">
         <div>
           <div className="md:w-80 sm:w-72 w-60 shadow-xl mx-auto mb-8">
-            <img src="../../public/assets/image/takenoko.png" alt="ﾀｹﾉｺ画像" />
+            <img
+              src="https://seafoodcook.netlify.app/assets/image/takenoko.png"
+              alt="ﾀｹﾉｺ画像"
+            />
           </div>
         </div>
         <div className="md:w-80 w-full">

@@ -21,7 +21,10 @@ const Footer = () => {
           <div className="mb-4">
             <Link to="/" className="flex items-center  button button:hover">
               <div className="sm:w-16 w-14 md:mr-3 mr-1">
-                <img src={imageFolder + "/logo.png"} alt="海の味ロゴ" />
+                <img
+                  src="https://seafoodcook.netlify.app/assets/image/logo.png"
+                  alt="海の味ロゴ"
+                />
               </div>
               <h2 className="sm:text-xl text-base font-bold  md:mr-3 mr-1">
                 海の味
