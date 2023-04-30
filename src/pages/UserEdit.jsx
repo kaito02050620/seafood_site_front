@@ -8,7 +8,7 @@ const API_SERVER = import.meta.env.VITE_API_SERVER;
 
 function User() {
   const { user } = useContext(AuthContext);
-  const [recipes, setRecipes] = useState(null);
+  const [recipes, setRecipes] = useState([]);
   const navigate = useNavigate();
   const [width, setWidth] = useState(window.innerWidth);
 
@@ -21,13 +21,12 @@ function User() {
       setRecipes(response.data);
     };
     getRecipes();
-  }, [recipes]);
+  }, []);
 
   //画面幅取得する
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
-
     return () => window.removeEventListener("resize", handleResize);
   }, [width]);
 
@@ -68,8 +67,8 @@ function User() {
           )}
         </div>
         <ul className="mt-5">
-          {recipes === null ? (
-            <p>投稿がありません。</p>
+          {recipes.length == 0 ? (
+            <p className="text-center">投稿がありません。</p>
           ) : (
             recipes.map((recipe) => {
               return <UserRecipe key={recipe._id} {...recipe} />;

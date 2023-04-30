@@ -42,8 +42,10 @@ function InputSeaFoods({ seaFoods, setSeaFoods, seaFood, setSeaFood }) {
       </div>
       <div className="py-1">
         {seaFoods.length === 0 ? (
-          <p className="sm:w-3/4 w-full m-auto pb-2 bg-slate-200 p-2 mb-2">
+          <p className="sm:w-3/4 w-full m-auto pb-2 bg-slate-200 p-2 mb-2 text-sm">
             まだ追加されていません
+            <br />
+            ※削除する事ができるので一度入力してみましょう！
           </p>
         ) : (
           <ul className="sm:w-3/4 w-full m-auto flex justify-start items-center flex-wrap sm:text-base text-sm">

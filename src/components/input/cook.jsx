@@ -31,8 +31,12 @@ function InputCook({ cooks, setCooks, recipe, setRecipe }) {
         <div>
           <div>
             {cooks.length === 0 ? (
-              <p className="sm:w-3/4 w-full m-auto pb-2 bg-slate-200 p-2 mb-2">
+              <p className="sm:w-3/4 w-full m-auto pb-2 bg-slate-200 p-2 mb-2 text-sm">
                 まだ追加されていません
+                <br />
+                ※作り方を入力して追加を押すと番号がされます。
+                <br />
+                ※削除する事ができるので一度入力してみましょう！
               </p>
             ) : (
               <ul className="sm:w-3/4 w-full m-auto items-center sm:text-base text-sm">
@@ -64,10 +68,11 @@ function InputCook({ cooks, setCooks, recipe, setRecipe }) {
           </div>
           <div className="w-3/4 m-auto flex justify-between items-center">
             <textarea
-              className="block w-4/5 m-auto h-10 p-2  border-gray-500 border-solid sm:text-base text-sm"
+              className="block w-4/5 m-auto p-2  border-gray-500 border-solid sm:text-base text-sm"
               value={recipe}
               onChange={(e) => setRecipe(e.target.value)}
               placeholder="作り方を入力しましょう"
+              rows="3"
             />
             <button
               className="block ml-1 viewRecipeButton  button button:hover"

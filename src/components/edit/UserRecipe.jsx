@@ -31,6 +31,7 @@ function UserRecipe({ ...recipe }) {
         id: user._id,
       },
     });
+    window.location.reload();
   };
 
   return (
