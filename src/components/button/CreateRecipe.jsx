@@ -9,7 +9,7 @@ function CreateRecipeButton() {
         <img
           src="https://seafoodcook.netlify.app/assets/image/cook.png"
           style={{
-            width: "25px",
+            width: "22px",
             display: "inline-block",
             margin: "auto",
             opacity: "0.9",
