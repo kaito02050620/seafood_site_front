@@ -27,12 +27,16 @@ function Recipe() {
     <div className="sectionBoard md:p-16 sm:p-8 p-4">
       <div className="flex justify-between mb-2">
         <PageBackButton />
-        {user._id == recipe.userId ? (
-          <Link to={`/edit/${recipe._id}`} className="mr-2">
-            <button className="bg-green-300 bg-opacity-40 rounded-sm border-solid border-gray-800 border inline-block p-2  button button:hover">
-              投稿を編集する
-            </button>
-          </Link>
+        {user ? (
+          user._id ? (
+            <Link to={`/edit/${recipe._id}`} className="mr-2">
+              <button className="bg-green-300 bg-opacity-40 rounded-sm border-solid border-gray-800 border inline-block p-2  button button:hover">
+                投稿を編集する
+              </button>
+            </Link>
+          ) : (
+            ""
+          )
         ) : (
           ""
         )}
