@@ -63,7 +63,7 @@ function UserRecipe({ ...recipe }) {
             </button>
           </Link>
           <button
-            className="bg-red-300 bg-opacity-40 rounded-sm border-solid border-gray-800 border inline-block w-12 h-10 button button:hover"
+            className="bg-slate-400 bg-opacity-40 rounded-sm border-solid border-gray-800 border inline-block w-12 h-10 button button:hover"
             onClick={deleteButton}
           >
             削除
