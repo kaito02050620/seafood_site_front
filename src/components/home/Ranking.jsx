@@ -1,13 +1,12 @@
 import React from "react";
-const PUBLIC_FOLDER = import.meta.env.VITE_API_PUBLIC_FOLDER;
 
 function Ranking() {
   return (
     <>
       <div className="sectionBoard p-5 relative">
         <div className="top-0 right-0 absolute w-full h-full z-10 bg-zinc-400 bg-opacity-70">
-          <p className=" text-3xl h-full w-full flex justify-center items-center">
-            今しばらくお待ちください...
+          <p className=" text-xl h-full w-full flex justify-center items-center">
+            準備中...
           </p>
         </div>
         <h1 className="text-3xl mb-10">総合ランキング</h1>
