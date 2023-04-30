@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Menu from "./menu/Menu";
 import { useEffect, useState } from "react";
-const imageFolder = "../../.";
+const imageFolder = "../";
 
 const Header = () => {
   const [scrollClass, setScrollClass] = useState("");
@@ -33,7 +33,7 @@ const Header = () => {
           <Link to="/" className="flex items-center button button:hover">
             <div className="lg:w-16 md:w-16 sm:w-16 w-14 md:mr-3 mr-1">
               <img
-                src="../../../../public/assets/image/logo.png"
+                src="../../../public/assets/image/logo.png"
                 alt="海の味ロゴ"
               />
             </div>
