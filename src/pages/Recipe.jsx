@@ -45,7 +45,7 @@ function Recipe() {
     <div className="sectionBoard md:p-16 sm:p-8 p-4">
       <div className="flex justify-between mb-2">
         <PageBackButton />
-        {isUserEdit}
+        {isUserEdit()}
       </div>
       <div className=" sm:p-5 p-3 recipeListBoard">
         <div className=" w-full sm:mb-7 mb-3 md:text-2xl sm:text-xl text-lg">
