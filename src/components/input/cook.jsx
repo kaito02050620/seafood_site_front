@@ -51,7 +51,7 @@ function InputCook({ cooks, setCooks, recipe, setRecipe }) {
                         </p>
                       </div>
                       <button
-                        className="line-block ml-3 text-2xl font-bold"
+                        className="line-block ml-3 text-2xl font-bold button button:hover"
                         onClick={(e) => recipeDelete(e, cook.No)}
                       >
                         <BsTrash3 size={18} />
@@ -69,7 +69,10 @@ function InputCook({ cooks, setCooks, recipe, setRecipe }) {
               onChange={(e) => setRecipe(e.target.value)}
               placeholder="作り方を入力しましょう"
             />
-            <button className="block ml-1 viewRecipeButton" onClick={addRecipe}>
+            <button
+              className="block ml-1 viewRecipeButton  button button:hover"
+              onClick={addRecipe}
+            >
               追加
             </button>
           </div>

@@ -55,7 +55,7 @@ function InputSeaFoods({ seaFoods, setSeaFoods, seaFood, setSeaFood }) {
                 >
                   <p className="inline-block">{food.seafood}</p>
                   <button
-                    className="line-block ml-3 text-2xl font-bold"
+                    className="line-block ml-3 text-2xl font-bold button button:hover"
                     onClick={(e) => seaFoodDelete(e, food.No)}
                   >
                     <BsTrash3 size={18} />
@@ -91,7 +91,10 @@ function InputSeaFoods({ seaFoods, setSeaFoods, seaFood, setSeaFood }) {
             </svg>
           </div>
         </div>
-        <button className="viewRecipeButton" onClick={addSeaFood}>
+        <button
+          className="viewRecipeButton button button:hover"
+          onClick={addSeaFood}
+        >
           追加
         </button>
       </div>

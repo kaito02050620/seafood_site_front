@@ -4,7 +4,7 @@ import { GiCook } from "react-icons/gi";
 
 function CreateRecipeButton() {
   return (
-    <Link className="viewRecipeButton" to="/create">
+    <Link className="viewRecipeButton  button button:hover" to="/create">
       <div className="flex items-center">
         <p className="mr-2 md:text-lg text-sm">レシピを投稿する</p>
         <GiCook

@@ -45,7 +45,7 @@ function MyDropzoneBasic(props) {
   }, [props.setImage, dropImage]);
 
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-full  button button:hover">
       <div
         className="w-full h-full relative flex items-center justify-center"
         {...getRootProps()}

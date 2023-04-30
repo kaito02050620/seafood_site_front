@@ -14,6 +14,7 @@ const RecipeSearch = () => {
     setSelectFood,
     selectUpdateOrder,
     setSelectUpdateOrder,
+    searchState,
   ] = useContext(SearchState);
 
   return (
@@ -22,11 +23,17 @@ const RecipeSearch = () => {
         <RecipeSelect
           selectRecipe={selectRecipe}
           setSelectRecipe={setSelectRecipe}
+          searchState={searchState}
         />
-        <FoodSelect selectFood={selectFood} setSelectFood={setSelectFood} />
+        <FoodSelect
+          selectFood={selectFood}
+          setSelectFood={setSelectFood}
+          searchState={searchState}
+        />
         <UpdateSelect
           selectUpdateOrder={selectUpdateOrder}
           setSelectUpdateOrder={setSelectUpdateOrder}
+          searchState={searchState}
         />
       </div>
     </>

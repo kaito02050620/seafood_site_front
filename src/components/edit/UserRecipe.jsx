@@ -3,7 +3,6 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../state/AuthContext";
 const API_SERVER = import.meta.env.VITE_API_SERVER;
-const PUBLIC_FOLDER = import.meta.env.VITE_API_PUBLIC_FOLDER;
 
 function UserRecipe({ ...recipe }) {
   const { user } = useContext(AuthContext);
@@ -41,7 +40,7 @@ function UserRecipe({ ...recipe }) {
           {truncateText(recipe.title)}
         </p>
         <div className="md:w-60 sm:w-72 w-52 object-cover m-auto md:mb-0 sm:mb-3 mb-2">
-          <img src={PUBLIC_FOLDER + "/" + recipe.image} alt={recipe.title} />
+          <img src={recipe.image} alt={recipe.title} />
         </div>
       </div>
       <div className="md:w-1/5 w-full">
@@ -49,18 +48,26 @@ function UserRecipe({ ...recipe }) {
           <p className="w-full text-center">{newUpdatedAt}</p>
         </div>
       </div>
-      <div className="md:w-1/5 w-full flex justify-center">
-        <Link to={`/edit/${recipe._id}`} className="mr-2">
-          <button className="bg-green-300 bg-opacity-40 rounded-sm border-solid border-gray-800 border inline-block w-12 h-10">
-            編集
-          </button>
-        </Link>
-        <button
-          className="bg-red-300 bg-opacity-40 rounded-sm border-solid border-gray-800 border inline-block w-12 h-10"
-          onClick={deleteButton}
+      <div className="md:w-1/5 w-full flex justify-center flex-wrap flex-start">
+        <Link
+          to={`/recipe/${recipe._id}`}
+          className="bg-red-300 bg-opacity-40 rounded-sm border-solid border-gray-800 border inline-block sm:w-[104px] w-[90px] py-2 md:mr-0 mr-2 md:mb-2 mb-0 button button:hover"
         >
-          削除
-        </button>
+          <p className="text-center">投稿を見る</p>
+        </Link>
+        <div>
+          <Link to={`/edit/${recipe._id}`} className="mr-2">
+            <button className="bg-green-300 bg-opacity-40 rounded-sm border-solid border-gray-800 border inline-block w-12 h-10 button button:hover">
+              編集
+            </button>
+          </Link>
+          <button
+            className="bg-red-300 bg-opacity-40 rounded-sm border-solid border-gray-800 border inline-block w-12 h-10 button button:hover"
+            onClick={deleteButton}
+          >
+            削除
+          </button>
+        </div>
       </div>
     </li>
   );

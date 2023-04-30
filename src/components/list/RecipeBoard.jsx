@@ -1,7 +1,6 @@
 import React from "react";
 import Marquee from "react-double-marquee";
 import { Link } from "react-router-dom";
-const PUBLIC_FOLDER = import.meta.env.VITE_API_PUBLIC_FOLDER;
 
 function RecipeBoard(recipe) {
   //指定文字数を超える場合に「...」を表示させる
@@ -22,7 +21,7 @@ function RecipeBoard(recipe) {
       <div className="md:w-64 sm:w-56 w-52 sm:h-full h-36 sm:mb-0 mb-1">
         <img
           className="w-full h-full object-cover"
-          src={PUBLIC_FOLDER + "/" + recipe.image}
+          src={recipe.image}
           alt={recipe.title}
         />
       </div>
@@ -49,7 +48,7 @@ function RecipeBoard(recipe) {
       </div>
       <Link
         to={`/recipe/${recipe._id}`}
-        className="viewRecipeButton absolute sm:bottom-5 bottom-2 sm:right-5 right-2"
+        className="viewRecipeButton absolute sm:bottom-5 bottom-2 sm:right-5 right-2  button button:hover"
       >
         作り方を見る
         <svg

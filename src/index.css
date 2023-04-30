@@ -6,6 +6,52 @@ html {
   @apply text-gray-800 font-sans text-base;
 }
 
+.scrolled {
+  @apply bg-orange-100 bg-opacity-70;
+}
+
+.open {
+  transition: all 0.3s;
+}
+
+.humbuger {
+  transform: translateX(110%);
+  transition: all 0.3s;
+}
+
+.menuOpen {
+  transform: translateX(0);
+}
+
+.humbugerBackground {
+  display: none;
+  transition: all 0.3s;
+  width: 100vh;
+  height: 100vh;
+  background-color: #000000;
+  opacity: 0.5;
+}
+
+.bgOpen {
+  display: block;
+}
+
+.closeBar:nth-child(1) {
+  width: 40px;
+  transform: translateX(-2px) translateY(9px) rotate(45deg);
+}
+.closeBar:nth-child(2) {
+  opacity: 0;
+}
+.closeBar:nth-child(3) {
+  width: 40px;
+  transform: translateX(-2px) translateY(-9px) rotate(-45deg);
+}
+
+.humbugerBar {
+  transition: 0.3s;
+}
+
 .sectionBoard {
   @apply bg-yellow-600 rounded-sm bg-opacity-50 shadow-md;
 }
@@ -15,15 +61,15 @@ html {
 }
 
 .viewRecipeButton {
-  @apply bg-red-300 bg-opacity-40 sm:px-4 px-1 sm:py-2 py-1 rounded-sm border-solid border-gray-800 border inline-block;
+  @apply bg-red-300 bg-opacity-40 sm:px-4 px-1 py-2 rounded-sm border-solid border-gray-800 border inline-block;
 }
 
 .button:hover {
-  @apply duration-75 opacity-70;
+  @apply opacity-[75%];
 }
 
 .headerMenu {
-  @apply lg:ml-12 ml-6  lg:text-xl md:text-lg text-sm;
+  @apply lg:ml-12 ml-6  md:text-lg text-sm;
 }
 
 .homeTitleFont {

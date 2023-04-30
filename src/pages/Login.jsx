@@ -1,9 +1,7 @@
 import React, { useContext, useRef } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import { loginCall } from "../state/dispatch";
 import { AuthContext } from "../state/AuthContext";
-const API_SERVER = import.meta.env.VITE_API_SERVER;
 
 function Login() {
   const email = useRef(null);
@@ -28,6 +26,7 @@ function Login() {
             },
             dispatch
           );
+          alert("ログインに成功しました");
         } catch (error) {
           console.log(error);
         }
@@ -46,6 +45,7 @@ function Login() {
     <div className="sectionBoard md:p-16 sm:p-8 p-4">
       <div className="max-w-sm bg-white bg-opacity-80 rounded-sm shadow-md p-6 m-auto ">
         <h1 className="text-2xl text-center mb-5">ログイン</h1>
+
         <form className="" onSubmit={(e) => loginButton(e)}>
           <div className="mb-6">
             <label htmlFor="email" className="block mb-1">
@@ -94,13 +94,13 @@ function Login() {
           </div>
           <button
             type="submit"
-            className="block bg-red-300 bg-opacity-40 px-4 py-2 rounded-sm border-solid border-gray-800 border m-auto"
+            className="block bg-red-300 bg-opacity-40 px-4 py-2 rounded-sm border-solid border-gray-800 border m-auto button button:hover"
           >
             ログインする
           </button>
         </form>
         <Link to="/register">
-          <p className="text-blue-400 text-sm text-center mt-5 cursor-pointer">
+          <p className="text-blue-400 text-sm text-center mt-5 cursor-pointer button button:hover">
             新規登録がまだの方はこちらから
           </p>
         </Link>

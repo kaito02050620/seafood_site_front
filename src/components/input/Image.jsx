@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import MyDropzoneBasic from "./Drop";
-const PUBLIC_FOLDER = import.meta.env.VITE_API_PUBLIC_FOLDER;
 
 function InputImage({ image, setImage }) {
   const [preview, setPreview] = useState("");
@@ -21,11 +20,11 @@ function InputImage({ image, setImage }) {
           <div className="w-full h-full object-cover overflow-hidden">
             <button
               onClick={imageDeleteButton}
-              className="p-3 bg-red-200 absolute top-3 right-3"
+              className="p-3 bg-red-200 absolute top-3 right-3 button button:hover"
             >
               削除
             </button>
-            <img src={preview || PUBLIC_FOLDER + "/" + image}></img>
+            <img src={preview || image}></img>
           </div>
         )}
       </div>

@@ -4,7 +4,7 @@ import { GiBowlOfRice } from "react-icons/gi";
 
 function LookRecipeButton() {
   return (
-    <Link className=" viewRecipeButton" to="/recipeList">
+    <Link className=" viewRecipeButton button button:hover" to="/recipeList">
       <div className="flex items-center">
         <p className="mr-2 md:text-lg text-sm">レシピを見る</p>
         <GiBowlOfRice
@@ -15,5 +15,4 @@ function LookRecipeButton() {
     </Link>
   );
 }
-
 export default LookRecipeButton;

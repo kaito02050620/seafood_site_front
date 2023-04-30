@@ -1,10 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import PageBackButton from "../components/button/PageBack";
+import { useContext } from "react";
+import { AuthContext } from "../state/AuthContext";
 const API_SERVER = import.meta.env.VITE_API_SERVER;
-const PUBLIC_FOLDER = import.meta.env.VITE_API_PUBLIC_FOLDER;
 
 function Recipe() {
+  const { user } = useContext(AuthContext);
   const [recipe, setRecipe] = useState(null);
   const { id } = useParams();
 
@@ -22,12 +25,24 @@ function Recipe() {
 
   return (
     <div className="sectionBoard md:p-16 sm:p-8 p-4">
+      <div className="flex justify-between mb-2">
+        <PageBackButton />
+        {user._id === recipe.userId ? (
+          <Link to={`/edit/${recipe._id}`} className="mr-2">
+            <button className="bg-green-300 bg-opacity-40 rounded-sm border-solid border-gray-800 border inline-block p-2  button button:hover">
+              投稿を編集する
+            </button>
+          </Link>
+        ) : (
+          ""
+        )}
+      </div>
       <div className=" sm:p-5 p-3 recipeListBoard">
         <div className=" w-full sm:mb-7 mb-3 md:text-2xl sm:text-xl text-lg">
           <h1 className="w-full text-center font-bold">{recipe.title}</h1>
         </div>
         <div className=" w-full p-0 m-auto sm:mb-3 mb-2 object-cover">
-          <img src={PUBLIC_FOLDER + "/" + recipe.image} alt={recipe.title} />
+          <img src={recipe.image} alt={recipe.title} />
         </div>
         <div className="w-full m-auto mb-3">
           <h2 className="mb-2 sm:text-lg text-base">◆レシピ投稿者より</h2>

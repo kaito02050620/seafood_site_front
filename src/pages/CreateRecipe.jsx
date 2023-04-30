@@ -8,8 +8,10 @@ import InputCategory from "../components/input/category";
 import InputSeaFoods from "../components/input/Seafoods";
 import axios from "axios";
 import { AuthContext } from "../state/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { IoIosArrowBack } from "react-icons/io";
 const API_SERVER = import.meta.env.VITE_API_SERVER;
+const AWS_IMAGE = import.meta.env.VITE_IMAGE_AWS;
 
 function CreateRecipe() {
   const { user } = useContext(AuthContext);
@@ -44,15 +46,15 @@ function CreateRecipe() {
   //投稿ボタン、入力値のバリデーション
   const createRecipeButton = async (e) => {
     e.preventDefault();
-
     if (
       Object.values(newRecipe).every(
         (value) => value !== "" && value.length !== 0
       )
     ) {
-      const uniquePrefix = `${Math.round(Math.random() * 1e9)}`;
+      const uploadPrefix =
+        new Date().getMonth().toString() + new Date().getDate().toString();
       const data = new FormData();
-      const fileName = `${Date.now()}-${uniquePrefix}-${image.name}`;
+      const fileName = `${AWS_IMAGE}/${uploadPrefix}-${image.name}`;
       data.append("name", fileName);
       data.append("file", image);
       newRecipe.image = fileName;
@@ -77,6 +79,13 @@ function CreateRecipe() {
     <>
       <form>
         <div className="sectionBoard md:p-16 sm:p-8 p-4">
+          <Link
+            className="flex items-center mb-2  button button:hover"
+            to={`/user/${user._id}`}
+          >
+            <IoIosArrowBack size={25} />
+            <p className="sm:text-base text-sm">個人ページに戻る</p>
+          </Link>
           <div className=" sm:p-5 p-3 recipeListBoard">
             <div className=" w-full sm:mb-10 mb-7 md:text-2xl sm:text-xl text-lg">
               <h1 className="w-full text-center font-bold">レシピ投稿ページ</h1>
@@ -110,7 +119,7 @@ function CreateRecipe() {
               setRecipe={setRecipe}
             />
             <button
-              className="bg-red-600 bg-opacity-60 p-5 rounded-sm border-solid border-gray-800 border block w-3/4 m-auto md:text-2xl sm:text-lg text-base my-5 font-bold"
+              className="bg-red-600 bg-opacity-60 p-5 rounded-sm border-solid border-gray-800 border block w-3/4 m-auto md:text-2xl sm:text-lg text-base my-5 font-bold button button:hover"
               type="submit"
               onClick={(e) => createRecipeButton(e)}
             >

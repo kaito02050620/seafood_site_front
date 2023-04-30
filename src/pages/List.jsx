@@ -18,6 +18,15 @@ function RecipeList() {
   const [selectUpdateOrder, setSelectUpdateOrder] = useState(updateOrder[0]);
   const [offset, setOffset] = useState(0);
   const perPage = 5;
+  const [searchState, setSearchState] = useState(() => {
+    return (
+      JSON.parse(localStorage.getItem("searchState")) || {
+        recipe: "料理名",
+        food: "海鮮名",
+        date: "新しい順",
+      }
+    );
+  });
 
   //DBからレシピリストを取得
   useEffect(() => {
@@ -27,6 +36,50 @@ function RecipeList() {
     };
     getRecipes();
   }, []);
+
+  //ローカルストレージの検索データを取得
+  useEffect(() => {
+    setSearchState(
+      JSON.parse(localStorage.getItem(`searchState`)) || {
+        recipe: "料理名",
+        food: "海鮮名",
+        date: "新しい順",
+      }
+    );
+  }, [setSearchState]);
+
+  useEffect(() => {
+    setSearchState((prev) => ({
+      ...prev,
+      recipe: prev.recipe || selectRecipe,
+      food: prev.food || selectFood,
+      date: prev.date || selectUpdateOrder,
+    }));
+  }, [selectRecipe, selectFood, selectUpdateOrder, setSearchState]);
+
+  let searchParams = {
+    recipe: selectRecipe,
+    food: selectFood,
+    date: selectUpdateOrder,
+  };
+  //検索ボタン,ローカルストレージ更新
+  const SearchButton = (e) => {
+    e.preventDefault;
+    localStorage.setItem("searchState", JSON.stringify(searchParams));
+    setSearchState(JSON.parse(localStorage.getItem(`searchState`)));
+  };
+
+  //検索リセットボタン
+  const ResetButton = (e) => {
+    e.preventDefault;
+    const defaultSearchState = {
+      recipe: "料理名",
+      food: "海鮮名",
+      date: "新しい順",
+    };
+    localStorage.setItem("searchState", JSON.stringify(defaultSearchState));
+    setSearchState(defaultSearchState);
+  };
 
   //日付をDateオブジェクトに変換
   const changeData = () => {
@@ -38,7 +91,7 @@ function RecipeList() {
   //日付順にソート処理
   const UpdateSearch = recipes.sort((a, b) => {
     changeData();
-    if (selectUpdateOrder !== "新しい順") {
+    if (searchState.date !== "新しい順") {
       return a.date - b.date;
     } else {
       return b.date - a.date;
@@ -47,12 +100,12 @@ function RecipeList() {
 
   //料理名と海鮮名の選択による処理
   const filterRecipe = UpdateSearch.filter((recipe) => {
-    const defaultRecipe = selectRecipe === "料理名";
-    const defaultName = selectFood === "海鮮名";
-    const selectedRecipe = recipe.category.includes(selectRecipe);
+    const defaultRecipe = searchState.recipe === "料理名";
+    const defaultName = searchState.food === "海鮮名";
+    const selectedRecipe = recipe.category.includes(searchState.recipe);
     const selectedName = recipe.seafoods
       .map((item) => item.seafood)
-      .includes(selectFood);
+      .includes(searchState.food);
     if (defaultRecipe && defaultName) {
       return true;
     } else if (selectedRecipe && defaultName) {
@@ -88,10 +141,25 @@ function RecipeList() {
           setSelectFood,
           selectUpdateOrder,
           setSelectUpdateOrder,
+          searchState,
         ]}
       >
         <RecipeSearch />
       </SearchState.Provider>
+      <div className="w-full flex items-center justify-center mt-3">
+        <button
+          className=" block sm:w-80 w-[250px] md:p-3 p-2 mr-2 bg-red-500 bg-opacity-60 rounded-sm border-solid border-gray-800 border sm:text-base text-sm button button:hover"
+          onClick={(e) => SearchButton(e)}
+        >
+          条件に合う検索を表示
+        </button>
+        <button
+          className=" block w-[140px] md:p-2 p-1  bg-red-50 bg-opacity-60 rounded-sm border-solid border-gray-800 border  sm:text-base text-sm button button:hover"
+          onClick={(e) => ResetButton(e)}
+        >
+          条件をリセット
+        </button>
+      </div>
       <ul className="md:mt-11 sm:mt-5 mt-3">
         {searchRecipe.length === 0 ? (
           <h2 className=" sm:text-2xl text-lg my-6 text-center">
@@ -109,7 +177,7 @@ function RecipeList() {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-5 h-5 inline"
+            className="w-5 h-5 inline button button:hover"
           >
             <path
               strokeLinecap="round"
@@ -125,7 +193,7 @@ function RecipeList() {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-5 h-5 inline"
+            className="w-5 h-5 inline  button button:hover"
           >
             <path
               strokeLinecap="round"
@@ -140,8 +208,10 @@ function RecipeList() {
         pageRangeDisplayed={10}
         onPageChange={handlePageChange}
         containerClassName={"flex items-center justify-center mt-8 mb-4"}
-        pageClassName={"m-1 w-7 h-10 rounded-sm border border-gray-800"}
-        pageLinkClassName={"px-2 py-3 leading-10"}
+        pageClassName={
+          "m-1 w-7 h-10 rounded-sm border border-gray-800 button button:hover"
+        }
+        pageLinkClassName={"px-2 py-3 leading-10 button button:hover"}
         activeClassName={"bg-white bg-opacity-50"}
         previousClassName={"m-1 w-7 h-10 rounded-sm border border-gray-800"}
         nextClassName={"m-1 w-7 h-10 rounded-sm border border-gray-800"}

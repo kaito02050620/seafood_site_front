@@ -5,7 +5,7 @@ function ChangeRecipeButton({ changeRecipeButton }) {
   return (
     <>
       <button
-        className=" viewRecipeButton button:hover"
+        className=" viewRecipeButton  button button:hover"
         onClick={(e) => changeRecipeButton(e)}
       >
         <div className="flex items-center">

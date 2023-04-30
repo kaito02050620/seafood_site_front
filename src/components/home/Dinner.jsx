@@ -21,7 +21,7 @@ function Dinner() {
   return (
     <>
       <div className="sectionBoard md:w-3/5 w-full lg:p-5 p-4">
-        <h1 className="homeTitleFont">今夜の晩御飯</h1>
+        <h1 className="homeTitleFont">今夜の晩御飯は...</h1>
         <div className="flex items-center justify-center">
           <div className="w-1/2 text-center md:mr-2 sm:mr-1 mr-0.5">
             <p className="lg:text-5xl md:text-3xl text-xl md:mb-8 mb-1">

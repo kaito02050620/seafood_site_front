@@ -39,8 +39,9 @@ function User() {
         "これまでに投稿したデータがすべて消去されます。本当に退会しますか？"
       )
     ) {
-      alert("正常に退会て、投稿したデータを削除しました");
+      alert("ユーザー情報と投稿したデータを削除しました");
       localStorage.removeItem("takenoko_seafood_user");
+      localStorage.removeItem("searchState");
       await axios.delete(API_SERVER + "/users/" + user._id);
       window.location.reload();
       navigate("/");
@@ -78,7 +79,7 @@ function User() {
       </div>
       <button
         onClick={(e) => deleteUserButton(e)}
-        className="bg-red-300 bg-opacity-40 px-4 py-2 rounded-sm border-solid border-gray-800 border block mx-auto mt-10"
+        className="bg-red-300 bg-opacity-40 px-4 py-2 rounded-sm border-solid border-gray-800 border block mx-auto mt-10 button button:hover"
       >
         海の味から退会する
       </button>

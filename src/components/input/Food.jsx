@@ -91,7 +91,7 @@ function InputFood({
                           </p>
                         </div>
                         <button
-                          className="line-block ml-3 text-2xl font-bold"
+                          className="line-block ml-3 text-2xl font-bold button button:hover"
                           onClick={(e) => foodDelete(e, food.No)}
                         >
                           <BsTrash3 size={18} />
@@ -118,7 +118,7 @@ function InputFood({
                 type="text"
               />
               <button
-                className="block ml-1 viewRecipeButton"
+                className="block ml-1 viewRecipeButton button button:hover"
                 onClick={addFoodButton}
               >
                 追加

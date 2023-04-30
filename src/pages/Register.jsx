@@ -27,6 +27,7 @@ function Register() {
             email: email.current.value,
             password: password.current.value,
           });
+          alert("新規登録しました。");
           navigate("/login");
         } catch (error) {
           console.log(error);
@@ -47,6 +48,9 @@ function Register() {
     <div className="sectionBoard md:p-16 sm:p-8 p-4">
       <div className="max-w-sm bg-white bg-opacity-80 rounded-sm shadow-md p-6 m-auto ">
         <h1 className="text-2xl text-center mb-5">新規登録</h1>
+        <p className="w-full text-center mb-5">
+          ユーザー登録してレシピを投稿しよう！
+        </p>
         <form className="" onSubmit={(e) => newRegisterButton(e)}>
           <div className="mb-6">
             <label htmlFor="username" className="block mb-1">
@@ -110,7 +114,7 @@ function Register() {
           </div>
           <button
             type="submit"
-            className="block bg-red-300 bg-opacity-40 px-4 py-2 rounded-sm border-solid border-gray-800 border m-auto"
+            className="block bg-red-300 bg-opacity-40 px-4 py-2 rounded-sm border-solid border-gray-800 border m-auto button button:hover"
           >
             新規登録する
           </button>

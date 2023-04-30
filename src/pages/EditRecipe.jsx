@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import InputDescription from "../components/input/Description";
 import InputImage from "../components/input/Image";
 import InputTitle from "../components/input/Title";
@@ -9,7 +9,9 @@ import InputCategory from "../components/input/category";
 import InputSeaFoods from "../components/input/Seafoods";
 import axios from "axios";
 import { AuthContext } from "../state/AuthContext";
+import { IoIosArrowBack } from "react-icons/io";
 const API_SERVER = import.meta.env.VITE_API_SERVER;
+const AWS_IMAGE = import.meta.env.VITE_IMAGE_AWS;
 
 function EditRecipe() {
   const { user } = useContext(AuthContext);
@@ -83,9 +85,10 @@ function EditRecipe() {
           console.log(error);
         }
       } else {
-        const uniquePrefix = `${Math.round(Math.random() * 1e9)}`;
         const data = new FormData();
-        const fileName = `${Date.now()}-${uniquePrefix}-${image.name}`;
+        const uploadPrefix =
+          new Date().getMonth().toString() + new Date().getDate().toString();
+        const fileName = `${AWS_IMAGE}/${uploadPrefix}-${image.name}`;
         data.append("name", fileName);
         data.append("file", image);
         editRecipe.image = fileName;
@@ -112,11 +115,15 @@ function EditRecipe() {
     <>
       <form>
         <div className="sectionBoard md:p-16 sm:p-8 p-4">
+          <Link className="flex items-center mb-2" to={`/user/${user._id}`}>
+            <IoIosArrowBack size={25} />
+            <p className="sm:text-base text-sm">個人ページに戻る</p>
+          </Link>
           <div className=" sm:p-5 p-3 recipeListBoard">
             <div className=" w-full sm:mb-10 mb-7 md:text-2xl sm:text-xl text-lg">
               <h1 className="w-full text-center font-bold">レシピ編集ページ</h1>
             </div>
-            <InputTitle value={title} setTitle={setTitle} />
+            <InputTitle title={title} setTitle={setTitle} />
             <InputImage image={image} setImage={setImage} />
             <InputDescription
               description={description}
@@ -145,7 +152,7 @@ function EditRecipe() {
               setRecipe={setRecipe}
             />
             <button
-              className="bg-red-600 bg-opacity-60 p-5 rounded-sm border-solid border-gray-800 border block w-3/4 m-auto md:text-2xl sm:text-lg text-base my-5 font-bold"
+              className="bg-red-600 bg-opacity-60 p-5 rounded-sm border-solid border-gray-800 border block w-3/4 m-auto md:text-2xl sm:text-lg text-base my-5 font-bold button button:hover"
               onClick={(e) => createRecipeButton(e)}
             >
               編集完了

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import ScrollTop from "./location/ScrollTop";
 import Header from "./components/common/Header";
 import Footer from "./components/common/Footer";
@@ -16,15 +16,27 @@ import EditRecipe from "./pages/EditRecipe";
 import { AuthContext } from "./state/AuthContext";
 import ScrollToTop from "react-scroll-up";
 import { IoArrowUpCircleSharp } from "react-icons/io5";
+import { useEffect } from "react";
 
 const App = () => {
   const { user } = useContext(AuthContext);
+  const location = useLocation();
+
+  //特定ページ以外に画面遷移した際に検索条件を破棄する
+  useEffect(() => {
+    if (
+      location.pathname !== "/recipeList" &&
+      !location.pathname.startsWith("/recipe/")
+    ) {
+      localStorage.removeItem("searchState");
+    }
+  }, [location.pathname]);
 
   return (
     <>
       <div className="bg-[url('../public/assets/image/background.png')] bg-cover bg-repeat w-full h-full">
         <Header />
-        <main className="max-w-screen-xl mx-auto lg:pt-32 md:pt-24 sm:pt-20 pt-16 lg:mb-52 md:mb-28 sm:mb-16 mb-10 lg:px-8 sm:px-6 px-3">
+        <main className="max-w-screen-xl mx-auto sm:pt-20 pt-16 lg:mb-52 md:mb-28 sm:mb-16 mb-10 lg:px-8 sm:px-6 px-3">
           <ScrollTop />
           <Routes>
             <Route path="/" element={<Home />} />
