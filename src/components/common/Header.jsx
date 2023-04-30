@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Menu from "./menu/Menu";
 import { useEffect, useState } from "react";
-const imageFolder = "https://seafoodcook.netlify.app/public/assets/image";
+const imageFolder = "../../../public/assets/image";
 
 const Header = () => {
   const [scrollClass, setScrollClass] = useState("");
