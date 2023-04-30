@@ -162,7 +162,9 @@ function RecipeList() {
       </div>
       <ul className="md:mt-11 sm:mt-5 mt-3">
         {searchRecipe.length === 0 ? (
-          <h2 className=" sm:text-2xl text-lg my-6 text-center">読み込み中</h2>
+          <h2 className=" sm:text-2xl text-lg my-6 text-center">
+            条件に合うレシピは投稿されていません。
+          </h2>
         ) : (
           searchRecipe
         )}
