@@ -84,7 +84,7 @@ function RecipeList() {
   //日付をDateオブジェクトに変換
   const changeData = () => {
     recipes.forEach((recipe) => {
-      recipe.date = new Date(recipe.updatedAt);
+      recipe.date = new Date(recipe.createdAt);
     });
   };
 

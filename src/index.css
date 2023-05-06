@@ -2,54 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/***************** ホームスライダー *****************/
 html {
   @apply text-gray-800 font-sans text-base;
-}
-
-.scrolled {
-  @apply bg-orange-100 bg-opacity-70;
-}
-
-.open {
-  transition: all 0.3s;
-}
-
-.humbuger {
-  transform: translateX(110%);
-  transition: all 0.3s;
-}
-
-.menuOpen {
-  transform: translateX(0);
-}
-
-.humbugerBackground {
-  display: none;
-  transition: all 0.3s;
-  width: 100vh;
-  height: 100vh;
-  background-color: #000000;
-  opacity: 0.5;
-}
-
-.bgOpen {
-  display: block;
-}
-
-.closeBar:nth-child(1) {
-  width: 40px;
-  transform: translateX(-2px) translateY(9px) rotate(45deg);
-}
-.closeBar:nth-child(2) {
-  opacity: 0;
-}
-.closeBar:nth-child(3) {
-  width: 40px;
-  transform: translateX(-2px) translateY(-9px) rotate(-45deg);
-}
-
-.humbugerBar {
-  transition: 0.3s;
 }
 
 .sectionBoard {
@@ -76,6 +31,7 @@ html {
   @apply md:text-3xl sm:text-2xl text-lg md:mb-10 mb-2;
 }
 
+/***************** ホームスライダー *****************/
 .slide-right-enter {
   transform: translateX(100%);
 }
@@ -96,6 +52,7 @@ html {
   transition: transform 0.3s;
 }
 
+/***************** スクロールボタン *****************/
 .scroll-top-button-container {
   position: fixed;
   bottom: 100px;
@@ -115,4 +72,61 @@ html {
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 50%;
+}
+
+.scrolled {
+  @apply bg-orange-100 bg-opacity-70;
+}
+
+/***************** いいね！*****************/
+.likeActive {
+  color: rgb(255, 80, 80);
+}
+
+.likePassive {
+  transition: 0.2s;
+  color: gray;
+}
+
+/***************** ハンバーガーメニュー *****************/
+.open {
+  transition: all 0.3s;
+}
+
+.humbuger {
+  transform: translateX(110%);
+  transition: all 0.3s;
+}
+
+.menuOpen {
+  transform: translateX(0);
+}
+
+.humbugerBackground {
+  display: none;
+  transition: all 0.3s;
+  width: 100vh;
+  height: 100vh;
+  background-color: #000000;
+  opacity: 0.5;
+}
+
+.bgOpen {
+  display: block;
+}
+
+.humbugerBar {
+  transition: 0.3s;
+}
+
+.closeBar:nth-child(1) {
+  width: 40px;
+  transform: translateX(-2px) translateY(9px) rotate(45deg);
+}
+.closeBar:nth-child(2) {
+  opacity: 0;
+}
+.closeBar:nth-child(3) {
+  width: 40px;
+  transform: translateX(-2px) translateY(-9px) rotate(-45deg);
 }

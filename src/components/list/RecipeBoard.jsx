@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import Marquee from "react-double-marquee";
 import { Link } from "react-router-dom";
+import LikeButton from "../button/Like";
+import { AuthContext } from "../../state/AuthContext";
 
 function RecipeBoard(recipe) {
+  const { user } = useContext(AuthContext);
   //指定文字数を超える場合に「...」を表示させる
   function truncateText(text) {
     const MAX_LENGTH = 60;
@@ -18,7 +21,8 @@ function RecipeBoard(recipe) {
 
   return (
     <li className="relative sm:h-52 h-80 w-full sm:p-5 p-3 recipeListBoard mb-5 flex flex-col sm:flex-row items-center">
-      <div className="md:w-64 sm:w-56 w-52 sm:h-full h-36 sm:mb-0 mb-1">
+      <LikeButton recipe={recipe} />
+      <div className="md:w-64 sm:w-56 w-fll sm:h-full h-36 sm:mb-0 mb-1 sm:px-0 px-7">
         <img
           className="w-full h-full object-cover"
           src={recipe.image}
@@ -27,7 +31,7 @@ function RecipeBoard(recipe) {
       </div>
       <div className="md:w-3/5 w-full sm:p-0 sm:max-w-xs md:ml-3 ml-2 h-full px-5">
         {recipeTitleLength > 20 ? (
-          <div className=" whitespace-nowrap sm:mb-2 mb-1 md:text-xl sm:text-lg text-base text-center sm:px-0 px-5">
+          <div className=" whitespace-nowrap sm:mb-2 mb-1 md:text-xl sm:text-lg text-base text-center sm:px-0 px-5 md:pr-0 sm:pr-9">
             <Marquee
               direction="left"
               scrollWhen="always"
@@ -42,7 +46,7 @@ function RecipeBoard(recipe) {
             <h3 className=" inline-block font-bold">{recipe.title}</h3>
           </div>
         )}
-        <p className="w-full sm:p-0 px-2 md:text-base text-sm">
+        <p className="w-full sm:p-0 px-2 md:text-base text-sm  md:pr-0 sm:pr-9">
           {truncateText(recipe.description)}
         </p>
       </div>
