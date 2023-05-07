@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import Marquee from "react-double-marquee";
 const API_SERVER = import.meta.env.VITE_API_SERVER;
 
 function Ranking() {
@@ -13,9 +12,8 @@ function Ranking() {
       setRanking(res.data);
     };
     getRanking();
-  }, [setRanking]);
+  }, []);
 
-  // const recipeTitleLength = ranking.title.length;
   return (
     <>
       <div className="sectionBoard w-full lg:p-5 p-4 relative">
