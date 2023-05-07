@@ -44,7 +44,7 @@ function Ranking() {
               />
             </div>
             <div className="sm:w-1/2 w-full md:p-5 sm:p-3 p-2 relative">
-              <p className="md:text-3xl sm:text-xl text-base">第1位</p>
+              <p className="md:text-3xl sm:text-xl text-base">第2位</p>
               <p className="md:text-3xl sm:text-xl text-base bold">
                 {ranking[1] && ranking[1].title}
               </p>
@@ -60,7 +60,7 @@ function Ranking() {
               />
             </div>
             <div className="sm:w-1/2 w-full md:p-5 sm:p-3 p-2 relative">
-              <p className="md:text-3xl sm:text-xl text-base">第1位</p>
+              <p className="md:text-3xl sm:text-xl text-base">第3位</p>
               <p className="md:text-3xl sm:text-xl text-base bold">
                 {ranking[2] && ranking[2].title}
               </p>
