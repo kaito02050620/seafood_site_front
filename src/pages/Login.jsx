@@ -17,7 +17,9 @@ function Login() {
       password.current.value !== "" &&
       confirmPassword.current.value !== ""
     ) {
-      if (password.current.value === confirmPassword.current.value) {
+      const isMatchPassword =
+        password.current.value === confirmPassword.current.value;
+      if (isMatchPassword) {
         try {
           loginCall(
             {
@@ -26,8 +28,8 @@ function Login() {
             },
             dispatch
           );
-          alert("ログインに成功しました");
         } catch (error) {
+          alert("ユーザーが見つかりません");
           console.log(error);
         }
       } else {

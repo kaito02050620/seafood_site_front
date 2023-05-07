@@ -18,7 +18,7 @@ function UserRecipe({ ...recipe }) {
   }
 
   //日付変換
-  const date = new Date(recipe.updatedAt);
+  const date = new Date(recipe.createdAt);
   const year = date.getFullYear();
   const month = date.getMonth() + 1;
   const day = date.getDate();
@@ -40,13 +40,14 @@ function UserRecipe({ ...recipe }) {
         <p className="w-full mr-10 md:mb-0 sm:mb-3 mb-2 md:text-left text-center md:text-lg text-base">
           {truncateText(recipe.title)}
         </p>
-        <div className="md:w-60 sm:w-72 w-52 object-cover m-auto md:mb-0 sm:mb-3 mb-2">
+        <div className="md:w-60  w-full object-cover m-auto md:mb-0 sm:mb-3 mb-2 md:px-0 sm:px-16 px-5">
           <img src={recipe.image} alt={recipe.title} />
         </div>
       </div>
       <div className="md:w-1/5 w-full">
         <div className=" m-auto md:mb-0 sm:mb-3 mb-2">
           <p className="w-full text-center">{newUpdatedAt}</p>
+          <p className="w-full text-center">いいね：{recipe.likes.length}</p>
         </div>
       </div>
       <div className="md:w-1/5 w-full flex justify-center flex-wrap flex-start">

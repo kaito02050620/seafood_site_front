@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import PageBackButton from "../components/button/PageBack";
 import { useContext } from "react";
 import { AuthContext } from "../state/AuthContext";
+import LikeButton from "../components/button/Like";
 const API_SERVER = import.meta.env.VITE_API_SERVER;
 
 function Recipe() {
@@ -47,7 +48,8 @@ function Recipe() {
         <PageBackButton />
         {isUserEdit()}
       </div>
-      <div className=" sm:p-5 p-3 recipeListBoard">
+      <div className="relative sm:p-5 p-3 recipeListBoard">
+        <LikeButton recipe={recipe} />
         <div className=" w-full sm:mb-7 mb-3 md:text-2xl sm:text-xl text-lg">
           <h1 className="w-full text-center font-bold">{recipe.title}</h1>
         </div>
