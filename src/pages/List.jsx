@@ -9,9 +9,11 @@ import {
 export const SearchState = createContext();
 import ReactPaginate from "react-paginate";
 import axios from "axios";
+import Loading from "../components/loading/Loading";
 const API_SERVER = import.meta.env.VITE_API_SERVER;
 
 function RecipeList() {
+  const [isLoading, setIsLoading] = useState(false);
   const [recipes, setRecipes] = useState([]);
   const [selectRecipe, setSelectRecipe] = useState(recipeName[0]);
   const [selectFood, setSelectFood] = useState(foodName[0]);
@@ -32,6 +34,7 @@ function RecipeList() {
   useEffect(() => {
     const getRecipes = async () => {
       const res = await axios.get(API_SERVER + "/posts/allRecipe");
+      setIsLoading(true);
       setRecipes(res.data);
     };
     getRecipes();
@@ -161,12 +164,16 @@ function RecipeList() {
         </button>
       </div>
       <ul className="md:mt-11 sm:mt-5 mt-3">
-        {searchRecipe.length === 0 ? (
-          <h2 className=" sm:text-2xl text-lg my-6 text-center">
-            条件に合うレシピは投稿されていません。
-          </h2>
+        {isLoading ? (
+          searchRecipe.length === 0 ? (
+            <h2 className=" sm:text-2xl text-lg my-6 text-center">
+              条件に合うレシピは投稿されていません。
+            </h2>
+          ) : (
+            searchRecipe
+          )
         ) : (
-          searchRecipe
+          <Loading />
         )}
       </ul>
       <ReactPaginate
